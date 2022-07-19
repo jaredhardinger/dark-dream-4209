@@ -17,24 +17,9 @@ RSpec.describe 'Ingredients Index Page' do
 
     visit "/ingredients"
 
-    within "#dough" do
-      expect(page).to have_content(dough.name)
-      expect(page).to have_content("Included in 2 recipe(s)")
-    end
-
-    within "#cheese" do
-      expect(page).to have_content(cheese.name)
-      expect(page).to have_content("Included in 1 recipe(s)")
-    end
-
-    within "#sauce" do
-      expect(page).to have_content(sauce.name)
-      expect(page).to have_content("Included in 1 recipe(s)")
-    end
-
-    within "#choco_chips" do
-      expect(page).to have_content(choco_chips.name)
-      expect(page).to have_content("Included in 1 recipe(s)")
-    end
+    expect(page).to have_content("#{dough.name}: 2")
+    expect(page).to have_content("#{cheese.name}: 1")
+    expect(page).to have_content("#{sauce.name}: 1")
+    expect(page).to have_content("#{choco_chips.name}: 1")
   end
 end
