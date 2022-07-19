@@ -1,14 +1,14 @@
 require 'rails_helper'
-# As a visitor,
-# When I visit '/recipes/:id'
-# I see a list of the names of the ingredients the recipe has.
-# (e.g. "Pasta, Meat, Cheese")
+
 RSpec.describe 'Recipes Show Page' do
   it 'has a list of ingredients the recipe has' do
     recipe_1 = Recipe.create!(name: 'Pizza', complexity: '4', genre: 'Italian')
-    dough = Ingredient.create!(name: 'dough', cost: '1')
-    cheese = Ingredient.create!(name: 'cheese', cost: '3')
-    sauce = Ingredient.create!(name: 'sauce', cost: '2')
+    dough = Ingredient.create!(name: 'Dough', cost: '1')
+    cheese = Ingredient.create!(name: 'Cheese', cost: '3')
+    sauce = Ingredient.create!(name: 'Sauce', cost: '2')
+    RecipeIngredient.create!(recipe: recipe_1, ingredient: dough)
+    RecipeIngredient.create!(recipe: recipe_1, ingredient: cheese)
+    RecipeIngredient.create!(recipe: recipe_1, ingredient: sauce)
 
     visit "/recipes/#{recipe_1.id}"
 
