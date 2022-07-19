@@ -1,4 +1,4 @@
-<h1><%= @name %></h1>
+<h1><%= @recipe.name %></h1>
 
 <h3>Ingredients</h3>
 <ul>
@@ -6,3 +6,5 @@
   <li><%= ingredient.name %></li>
 <% end %>
 </ul>
+
+<p>Total Cost: <%= @recipe.cost %></p>
